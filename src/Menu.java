@@ -1,4 +1,5 @@
 public class Menu {
+
     public static void getMenu(){
         System.out.println("----- Menu -----");
         System.out.println("1: Get Elevator Status");

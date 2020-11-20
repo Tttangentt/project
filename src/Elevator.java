@@ -9,7 +9,7 @@ public class Elevator {
     public Elevator(int maximumPerson,int maxFloor,double maximumWeight) {
         this.maximumPerson = Math.max(1,maximumPerson);
         this.maxFloor = Math.max(1,maxFloor);
-        this.maximumWeight = Math.max(1,maximumWeight);;
+        this.maximumWeight = Math.max(1,maximumWeight);
         this.personInElevator = new Person[this.maximumPerson];
         this.currentFloor = (int) (Math.random() * maxFloor) + 1;
     }
