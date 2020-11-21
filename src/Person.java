@@ -3,13 +3,13 @@ public class Person {
     private double weight;
 
     public Person(String name, double weight) {
-        this.name = name;
-        this.weight = weight;
+        this.name = name; //เก็บชื่อ
+        this.weight = weight; //เก็บน้ำหนัก
     }
 
     public double getWeight() {
         return weight;
-    }
+    } //เรียกดูน้ำหนักของ Person
 
     @Override
     public String toString() {

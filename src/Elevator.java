@@ -13,10 +13,11 @@ public class Elevator {
         this.personInElevator = new Person[this.maximumPerson];
         this.currentFloor = (int) (Math.random() * maxFloor) + 1;
     }
-    public void addPerson(Person p){
-        if(pointOfPerson < maximumPerson){
+    public void addPerson(Person p){ //รับชื่อและน้ำหนักจาก class Person
+        if(pointOfPerson < maximumPerson){ //ถ้าคนที่อยู่ในลิฟต์น้อยกว่าจำนวนคนที่ลิฟต์สามารถรับได้
             if(checkWeight(p.getWeight())){
-                personInElevator[pointOfPerson++] = p;
+                personInElevator[pointOfPerson] = p;
+                pointOfPerson++;
             }else{
                 System.out.println("OverWeight!");
             }
@@ -28,11 +29,11 @@ public class Elevator {
     }
     public boolean checkWeight(double personWeight){
         boolean canIn = true;
-        double sumWeight = personWeight;
+        double sumWeight = personWeight; // sumWeight เท่ากับน้ำหนักของคนที่อยู่ในลิฟต์รวมกัน
         for (int i = 0; i < pointOfPerson; i++) {
-            sumWeight += personInElevator[i].getWeight();
+            sumWeight += personInElevator[i].getWeight(); //เอาน้ำหนักของคนในที่อยู่ในลิฟต์มาบวกกันแล้วเก็บค่าไว้ใน sumWeight
         }
-        if (sumWeight>maximumWeight ){
+        if (sumWeight>maximumWeight ){ //ถ้า sumWeight มากกว่าน้ำหนักที่ลิฟต์สามารถรับได้จะ return ค่าเป็น false
             canIn = false;
         }
         return canIn;
