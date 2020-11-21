@@ -29,8 +29,8 @@ public class Main {
                     System.out.print("Input Person Weight : "); // กำหนดน้ำหนักของ person
                     double weight = sc.nextDouble();
 
-                  //  Person person = new Person(name, weight);
-                  //  elevator.addPerson(person);                 // เรียกใช้ method addPerson() จาก class Elevator
+                    Person person = new Person(name, weight);
+                    elevator.addPerson(person);                 // เรียกใช้ method addPerson() จาก class Elevator
                     System.out.println(elevator);
                     break;
                 case 3:

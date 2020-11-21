@@ -13,9 +13,10 @@ public class Elevator {
         this.personInElevator = new Person[this.maximumPerson];
         this.currentFloor = (int) (Math.random() * maxFloor) + 1;
     }
-    public void addPerson(Person p){ //รับชื่อและน้ำหนักจาก class Person
-        if(pointOfPerson < maximumPerson){ //ถ้าคนที่อยู่ในลิฟต์น้อยกว่าจำนวนคนที่ลิฟต์สามารถรับได้
-            if(checkWeight(p.getWeight())){
+
+    public void addPerson(Person p){    //รับชื่อและน้ำหนักจาก class Person
+        if(pointOfPerson < maximumPerson){  //ถ้าคนที่อยู่ในลิฟต์น้อยกว่าจำนวนคนที่ลิฟต์สามารถรับได้
+            if(checkWeight(p.getWeight())){ //เรียกใช้ method checkWeight()
                 personInElevator[pointOfPerson] = p;
                 pointOfPerson++;
             }else{
@@ -27,7 +28,8 @@ public class Elevator {
         }
 
     }
-    public boolean checkWeight(double personWeight){
+
+    public boolean checkWeight(double personWeight){    // ใช้ตรวจสอบว่าน้ำหนักของคน ทั้งหมดที่อยู่ในลิฟต์เกินค่า maximumWeight รึเปล่า
         boolean canIn = true;
         double sumWeight = personWeight; // sumWeight เท่ากับน้ำหนักของคนที่อยู่ในลิฟต์รวมกัน
         for (int i = 0; i < pointOfPerson; i++) {
@@ -54,7 +56,9 @@ public class Elevator {
                 down(); //ทำงานเพิ่มชั้นจนกว่าจะถึงชั้นที่กด
                 System.out.println("Current Floor : " + getCurrentFloor());
             }
-        }else System.out.println("You are already in this floor");
+        }else {
+            System.out.println("You are already in this floor");
+            }
     }
 
     //เป็น getter return ค่า CurrentFloor ตำแหน่งชั้นที่เราอยู่
