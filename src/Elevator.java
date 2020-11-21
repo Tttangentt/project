@@ -13,6 +13,30 @@ public class Elevator {
         this.personInElevator = new Person[this.maximumPerson];
         this.currentFloor = (int) (Math.random() * maxFloor) + 1;
     }
+    public void addPerson(Person p){
+        if(pointOfPerson < maximumPerson){
+            if(checkWeight(p.getWeight())){
+                personInElevator[pointOfPerson++] = p;
+            }else{
+                System.out.println("OverWeight!");
+            }
+        }
+        else{
+            System.out.println("Elevator is full !");
+        }
+
+    }
+    public boolean checkWeight(double personWeight){
+        boolean canIn = true;
+        double sumWeight = personWeight;
+        for (int i = 0; i < pointOfPerson; i++) {
+            sumWeight += personInElevator[i].getWeight();
+        }
+        if (sumWeight>maximumWeight ){
+            canIn = false;
+        }
+        return canIn;
+    }
 
     public void gotoXFloor(int Targetfloor){ //รับค่าชั้นที่เราต้องการ
         // เก็บค่าระยะห่างระหว่างชั้นที่ต้องการไป //ไม่ให้ค่าติดลบ
